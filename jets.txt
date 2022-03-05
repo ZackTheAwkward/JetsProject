@@ -1,0 +1,2 @@
+JetImpl,AeroPlano,600.12,3600,13000
+JetImpl,SecondAeroPlane,555.55,11155,24000
