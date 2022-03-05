@@ -13,8 +13,8 @@ public class JetImpl extends Jets {
 
 	@Override
 	public String toString() {
-		return " Model = " + getModel() + ", Speed = " + getSpeed() + ", Range = " + getRange()
-				+ ", Price = " + getPrice();
+		return "Model: " + getModel() + ", Speed: " + getSpeed() +" MPH" + ", Range: " + " miles" + getRange()
+				+ ", Price: $" + getPrice();
 	}
 
 	@Override

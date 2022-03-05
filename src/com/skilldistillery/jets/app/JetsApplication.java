@@ -12,7 +12,6 @@ public class JetsApplication {
 		
 		AirField af = new AirField();
 		af.printJets();
-		
 	}
 
 }

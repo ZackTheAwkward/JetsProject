@@ -12,8 +12,8 @@ public class CargoCarrier extends Jets implements CargoCarrierInterface {
 
 	@Override
 	public String toString() {
-		return "Model: " + getModel() + " Speed: " + getSpeed()
-				+ " Range: " + getRange() + " Price: " + getPrice();
+		return "Model: " + getModel() + " Speed: " + getSpeed() + " MPH"
+				+ " Range: " + getRange() + " miles" + " Price: $" + getPrice();
 	}
 
 
