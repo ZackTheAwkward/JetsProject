@@ -7,39 +7,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirField {
+	String fileName = "jets.txt";
+	List<Jets> jets = readJets(fileName);
 
-	public static void main(String[] args) {
-		String fileName = "jets.txt";
-		AirField af = new AirField();
-		af.readJets(fileName);
-
-		List<Jets> listOfJets = af.readJets(fileName);
-	}
-
-	private List<Jets> readJets(String fileName) {
-
-		List<Jets> listOfJets = new ArrayList<>();
-
+	public List<Jets> readJets(String fileName) {
+		List<Jets> jetCollection = new ArrayList<Jets>();
 		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
 			String line;
-				//change syntax so realine isnt jsut not equal to null but also while its equal to type
 			while ((line = bufIn.readLine()) != null) {
 
-					String[] jetRecords = line.split(",");
-					String type = jetRecords[0];
-					String model = jetRecords[1];
-					double speed = Double.parseDouble(jetRecords[2]);
-					int range = Integer.parseInt(jetRecords[3]);
-					long price = Long.parseLong(jetRecords[4]);
-					JetImpl p = new JetImpl(model, speed, range, price);
-					System.out.println(p);
-				}
-
+				
+				String[] jetFields = line.split(",");
+				String type = jetFields[0];
+			if(type.equalsIgnoreCase("JetImpl")) {
+				
+				
+				String model = jetFields[1];
+				double speed = Double.parseDouble(jetFields[2]);
+				int range = Integer.parseInt(jetFields[3]);
+				long price = Long.parseLong(jetFields[4]);
+				JetImpl ji = new JetImpl(model, speed, range, price);
+				jetCollection.add(ji);
+			
+			}	else if(type.equalsIgnoreCase("CargoCarrier")) { 
+				String model = jetFields[1];
+				double speed = Double.parseDouble(jetFields[2]);
+				int range = Integer.parseInt(jetFields[3]);
+				long price = Long.parseLong(jetFields[4]);
+				CargoCarrier cc = new CargoCarrier(model, speed, range, price);
+				jetCollection.add(cc);
+			} 
+//				model = jetFighter[1];
+//				speed = Double.parseDouble(jetFighter[2]);
+//				range = Integer.parseInt(jetFighter[3]);
+//				price = Long.parseLong(jetFighter[4]);
+//				FighterJet fj = new FighterJet(model, speed, range, price, range);
+			}
 		} catch (IOException e) {
 			System.err.println(e);
 		}
 
-		return listOfJets;
+		return jetCollection;
 	}
 
+	public void printJets() {
+		System.out.println(jets);
+	}
 }

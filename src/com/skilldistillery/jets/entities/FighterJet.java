@@ -3,7 +3,7 @@ package com.skilldistillery.jets.entities;
 public class FighterJet extends Jets{
 	private int missileCapacity;
 
-	public FighterJet() {
+	public FighterJet(String model, double speed, int range, long price, int missileCapacity2) {
 		super();
 	}
 

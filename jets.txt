@@ -1,2 +1,5 @@
 JetImpl,AeroPlano,600.12,3600,13000
 JetImpl,SecondAeroPlane,555.55,11155,24000
+CargoCarrier,Big Bertha,80.42,200000,50000000,3000
+FighterJet,The Big Pew,15000.96,65000,100000000000,2
+FighterJet,The Slightly Larger Pew,14000.95,45000,110000000000,4
