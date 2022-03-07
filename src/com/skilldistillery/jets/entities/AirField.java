@@ -90,7 +90,7 @@ public class AirField {
 		int index = 0;
 		int farRange = jets.get(0).getRange();
 		for (int i = 0; i < jets.size(); i++) {
-			if( farRange < jets.get(i).getRange()) {
+			if (farRange < jets.get(i).getRange()) {
 				farRange = jets.get(i).getRange();
 				index = counter;
 			}
@@ -101,45 +101,49 @@ public class AirField {
 
 	public void loadingCargo() {
 		CargoCarrier cc = new CargoCarrier();
-			cc.loadCargo();
-			for (Jets jets2 : jets) {
-				if(jets2 == cc) {
-					cc.loadCargo();
-				}
+		for (Jets jets2 : jets) {
+			if(jets2 instanceof CargoCarrier) {
+				cc.loadCargo();
 			}
-					
 		}
+		
+		
+		
+	}
 
 	public void fighting() {
 		FighterJet fj = new FighterJet();
 		for (Jets jets2 : jets) {
-			if (jets2.equals(fj)) {
+			if(jets2 instanceof FighterJet) {
 				fj.fight();
 			}
 		}
+		
 		
 	}
 
 	public void addJet() {
 		ArrayList<Jets> jetAddition = new ArrayList<Jets>();
+		try {
+			System.out.println("Please enter the model of the Jet");
+			String model = scanner.next();
+			System.out.println();
+			System.out.println("Please enter the speed of the Jet");
+			double speed = scanner.nextDouble();
+			System.out.println();
+			System.out.println("Please enter the range of the Jet");
+			int range = scanner.nextInt();
+			System.out.println();
+			System.out.println("Please enter the price of the Jet");
+			long price = scanner.nextLong();
+			System.out.println();
+			JetImpl ji = new JetImpl(model, speed, range, price);
+			jetAddition.add(ji);
+			jets.addAll(jetAddition);
 
-		System.out.println("Please enter the model of the Jet");
-		String model = scanner.next();
-
-		System.out.println();
-		System.out.println("Please enter the speed of the Jet");
-		double speed = scanner.nextDouble();
-		System.out.println();
-		System.out.println("Please enter the range of the Jet");
-		int range = scanner.nextInt();
-		System.out.println();
-		System.out.println("Please enter the price of the Jet");
-		long price = scanner.nextLong();
-		System.out.println();
-		JetImpl ji = new JetImpl(model, speed, range, price);
-		jetAddition.add(ji);
-		jets.addAll(jetAddition);
-
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void removeJet() {
