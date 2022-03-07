@@ -4,5 +4,4 @@ public interface CargoCarrierInterface {
 	
 	public void loadCargo();
 	
-	
 }

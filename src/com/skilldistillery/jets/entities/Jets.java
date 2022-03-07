@@ -78,7 +78,8 @@ public void fly() {
 	double time;
 	// Range in miles/ Speed per hour should equal time in air.
 	time = range/ speed;
-	System.out.println(toString() + time);
+	System.out.println(toString() + " "  + "Flight Time " + String.format("%.2f", time) + " hours");
+	System.out.println();
 	
 }
 	

@@ -1,6 +1,6 @@
 package com.skilldistillery.jets.entities;
 
-public class FighterJet extends Jets{
+public class FighterJet extends Jets implements DogFight{
 
 	
 
@@ -34,6 +34,14 @@ public class FighterJet extends Jets{
 	public void fly() {
 		super.fly();
 	}
-	
 
+
+
+
+	@Override
+	public void fight() {
+		System.out.println("PEW PEW PEW PEW");
+	}
+
+	
 }

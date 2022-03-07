@@ -23,8 +23,7 @@ public class CargoCarrier extends Jets implements CargoCarrierInterface {
 
 	@Override
 	public void loadCargo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("LOADING CARGO");
 	}
 	
 	
