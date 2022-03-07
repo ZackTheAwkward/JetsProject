@@ -1,13 +1,9 @@
 package com.skilldistillery.jets.entities;
 
-import java.awt.Window.Type;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -102,24 +98,21 @@ public class AirField {
 	public void loadingCargo() {
 		CargoCarrier cc = new CargoCarrier();
 		for (Jets jets2 : jets) {
-			if(jets2 instanceof CargoCarrier) {
+			if (jets2 instanceof CargoCarrier) {
 				cc.loadCargo();
 			}
 		}
-		
-		
-		
+
 	}
 
 	public void fighting() {
 		FighterJet fj = new FighterJet();
 		for (Jets jets2 : jets) {
-			if(jets2 instanceof FighterJet) {
+			if (jets2 instanceof FighterJet) {
 				fj.fight();
 			}
 		}
-		
-		
+
 	}
 
 	public void addJet() {
@@ -140,7 +133,6 @@ public class AirField {
 			JetImpl ji = new JetImpl(model, speed, range, price);
 			jetAddition.add(ji);
 			jets.addAll(jetAddition);
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -148,6 +140,16 @@ public class AirField {
 
 	public void removeJet() {
 		System.out.println("Enter a number to remove the corresponding Jet");
+		int counter = 0;
+
+		for (Jets jets2 : jets) {
+			System.out.println(counter + " " + jets2);
+			counter++;
+		}
+		int userInput = scanner.nextInt();
+		if (userInput < jets.size()) {
+			jets.remove(userInput);
+		}
 
 	}
 
